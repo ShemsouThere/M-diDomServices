@@ -2,9 +2,12 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
 class CustomUser(AbstractUser):
-    phone_number = models.CharField(max_length=15, blank=True, null=True)
-    userRole = models.CharField(max_length=15, default='client')
-    # Add other custom fields as needed
+    phone_number           = models.CharField(max_length=15, blank=True, null=True)
+    userRole               = models.CharField(max_length=15, default='client')
+    NSS                    = models.CharField(max_length=15, blank=True, null=True) 
+    DNS                    = models.DateField()
+    pathologies_chroniques = models.TextField(default='')
+    sous_trait_medi_part   = models.TextField(default='')
 
     # Add related_name to the groups and user_permissions fields
     groups = models.ManyToManyField(Group, blank=True, related_name='customuser_set', related_query_name='user', verbose_name='groups')

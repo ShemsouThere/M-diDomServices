@@ -13,6 +13,10 @@ const RegistrationForm = () => {
     last_name: '',
     phone_number: '',
     userRole: 'client',
+    NSS: '', 
+    DNS: '', 
+    pathologies_chroniques: '', 
+    sous_trait_medi_part: '', 
   });
 
   const handleChange = (e) => {
@@ -29,7 +33,7 @@ const RegistrationForm = () => {
         console.error('Passwords do not match');
         return;
     }
-    
+    console.log(formData);
     try {
         const response = await axios.post('/api/register/', formData, {
             headers: {
@@ -69,10 +73,23 @@ const RegistrationForm = () => {
       <br />
 
       <label>
-        Phone Number:
-        <input type="text" name="phone_number" value={formData.phone_number} onChange={handleChange} />
+        NSS:
+        <input type="text" name="NSS" value={formData.NSS} onChange={handleChange} max={15} />
       </label>
       <br />
+
+      <label>
+        Date De Naissance:
+        <input type="date" name="DNS" value={formData.DNS} onChange={handleChange} min="1800-01-01" max={new Date().toISOString().split('T')[0]} />
+      </label>
+      <br />
+
+      <label>
+        Phone Number:
+        <input type="number" name="phone_number" value={formData.phone_number} onChange={handleChange} maxLength={10} />
+      </label>
+      <br />
+
 
       <label>
         Password:
@@ -84,6 +101,21 @@ const RegistrationForm = () => {
         <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
       </label>
       <br />
+
+
+
+      <label>
+        Pathologies Chroniques:
+        <textarea name="pathologies_chroniques" value={formData.pathologies_chroniques} onChange={handleChange} />
+      </label>
+      <br />
+
+      <label>
+        Sous Trait Medi Part:
+        <textarea name="sous_trait_medi_part" value={formData.sous_trait_medi_part} onChange={handleChange} />
+      </label>
+      <br />
+
 
       <button type="submit">Register</button>
     </form>

@@ -6,7 +6,7 @@ import RegistrationForm from './Auth/RegistrationForm.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-    <App />
-    // <RegistrationForm />
+    // <App />
+    <RegistrationForm />
     
 )
