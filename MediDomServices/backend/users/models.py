@@ -2,9 +2,9 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
 class CustomUser(AbstractUser):
-    phone_number           = models.CharField(max_length=15, blank=True, null=True)
+    phone_number           = models.CharField(max_length=15, blank=True, null=True,default='0000000000')
     userRole               = models.CharField(max_length=15, default='client')
-    NSS                    = models.CharField(max_length=15, blank=True, null=True) 
+    NSS                    = models.CharField(max_length=15, blank=True, null=True,default='1234567891012') 
     DNS                    = models.DateField()
     pathologies_chroniques = models.TextField(default='')
     sous_trait_medi_part   = models.TextField(default='')

@@ -35,7 +35,7 @@ const RegistrationForm = () => {
     }
     console.log(formData);
     try {
-        const response = await axios.post('/api/register/', formData, {
+        const response = await axios.post('/api/user/register/', formData, {
             headers: {
             "X-CSRFToken": cookies.get("csrftoken"), // Include the CSRF token
         },

@@ -27,7 +27,7 @@ def login_view(request):
     if user is None:
         return JsonResponse({"detail":"invalid credentials"}, status=400)
     login(request, user)
-    return JsonResponse({"details": "Succesfully logged in!"})
+    return JsonResponse({"details": "Succesfully logged in!", "userRole": user.userRole, "user_id":user.id})
 
 def logout_view(request):
     if not request.user.is_authenticated:
@@ -40,12 +40,25 @@ def logout_view(request):
 def session_view(request):
     if not request.user.is_authenticated:
         return JsonResponse({"isAuthenticated": False})
-    return JsonResponse({"isAuthenticated": True})
+    return JsonResponse({"isAuthenticated": True, "userRole": request.user.userRole, "user":request.user.id})
 
+
+
+# views.py
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import CustomUserSerializer
+
+@api_view(['GET'])
 def whoami_view(request):
     if not request.user.is_authenticated:
         return JsonResponse({"isAuthenticated": False})
-    return JsonResponse({"username":request.user.first_name})
+    print(request.user.userRole)
+    user_serializer = CustomUserSerializer(request.user)
+    serialized_user = user_serializer.data
+
+    return JsonResponse({"user": serialized_user})
 
 
 

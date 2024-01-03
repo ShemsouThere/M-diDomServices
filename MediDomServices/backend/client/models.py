@@ -1,12 +1,17 @@
-# from django.db import models
-# from users.models import CustomUser
-# # Create your models here.
+from django.db import models
+from users.models import CustomUser
 
-# class Rdv(models.Model):
+TYPE_CONSULTATION = [
+    ('medicale', 'medicale'),
+    ('paramedicale', 'paramedicale')
+]
 
-#     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
-#     Date = models.DateField()
-#     Heure = models.DateTimeField()
+class Consultation(models.Model):
+
+    User = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    Date = models.DateField()
+    Heure = models.TimeField()
+    Type = models.CharField(choices=TYPE_CONSULTATION, max_length=15)
     
-#     def __str__(self):
-#         return ''
+    def __str__(self):
+        return f'{self.User} - {self.Date} - {self.Heure} - {self.Type}'

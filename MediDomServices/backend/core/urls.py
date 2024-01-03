@@ -22,6 +22,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('users.urls')),
+    path('api/', include('core.api.urls')),
     path('', TemplateView.as_view(template_name="base.html")),
+    # Add the catch-all route at the end
+    path('<path:path>', TemplateView.as_view(template_name="base.html")),
 ]

@@ -1,6 +1,7 @@
 import React from 'react';
 import Cookies from "universal-cookie";
-
+import Client from './Client/client.jsx'
+import Responsable from './Responsable/responsable.jsx'
 //instantiating Cookies class by creating cookies object
 const cookies = new Cookies();
 
@@ -13,17 +14,19 @@ class App extends React.Component {
       password: "",
       error: "",
       isAuthenticated: false,
+      userRole: '',
     };
   }
 
   componentDidMount = () => {
     this.getSession();
+    console.log(this.state);
   }
 
 // Get Session Method
   getSession = () => {
-    //// Make a GET request to the "/api/session/" URL with "same-origin" credentials
-    fetch("/api/session/", {
+    //// Make a GET request to the "/api/user/session/" URL with "same-origin" credentials
+    fetch("/api/user/session/", {
       credentials: "same-origin",
     })
     .then((res) => res.json()) //// Parse the response as JSON
@@ -31,7 +34,7 @@ class App extends React.Component {
       console.log(data); // Log the response data to the console
       //// If the response indicates the user is authenticated
       if (data.isAuthenticated) {
-        this.setState({isAuthenticated: true}); // Update the component's state
+        this.setState({isAuthenticated: true,userRole:data.userRole}); // Update the component's state
       } else {  // If the response indicates the user is not authenticated
         this.setState({isAuthenticated: false}); // Update the component's state
       }
@@ -44,7 +47,7 @@ class App extends React.Component {
   
 //Who Am I method
   whoami = () => {
-    fetch("/api/whoami/", {
+    fetch("/api/user/whoami/", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -52,7 +55,8 @@ class App extends React.Component {
     })
     .then((res) => res.json())
     .then((data) => {
-      console.log("You are logged in as: " + data.username);
+      console.log("You are logged in as: " + data.user.username);
+      
     })
     .catch((err) => {
       console.log(err);
@@ -62,11 +66,11 @@ class App extends React.Component {
   handlePasswordChange = (event) => {
     this.setState({password: event.target.value});
   }
-
+  
   handleUserNameChange = (event) => {
     this.setState({username: event.target.value});
   }
-
+  
   isResponseOk(response) {
     console.log(response);
     if (response.status >= 200 && response.status <= 299) {
@@ -79,8 +83,8 @@ class App extends React.Component {
   //Login Mthod
   login = (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
-     // Make a POST request to the "/api/login/" URL with the form data
-    fetch("/api/login/", {
+     // Make a POST request to the "/api/user/user/login/" URL with the form data
+    fetch("/api/user/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +106,7 @@ class App extends React.Component {
 
   //Logout Method
   logout = () => {
-    fetch("/api/logout", {
+    fetch("/api/user/logout", {
       credentials: "same-origin",
     })
     .then(this.isResponseOk)
@@ -145,14 +149,32 @@ class App extends React.Component {
         </div>
       );
     }
-    return (
-      <div className="container mt-3">
-        <h1>React Cookie Auth</h1>
-        <p>You are logged in!</p>
-        <button className="btn btn-primary mr-2" onClick={this.whoami}>WhoAmI</button>
-        <button className="btn btn-danger" onClick={this.logout}>Log out</button>
-      </div>
-    )
+
+
+
+    
+
+    // if(this.state.userRole == 'responsable'){
+
+      return (
+
+        <div>
+        {this.state.userRole=== "responsable" ? < Responsable/> : < Client/>}
+            {/* <h1>Hello Boss</h1>
+          <h1>React Cookie Auth</h1>
+          <p>You are logged in!</p>
+          <button className="btn btn-primary mr-2" onClick={this.whoami}>WhoAmI</button>
+          <button className="btn btn-danger" onClick={this.logout}>Log out</button> */}
+          {/* <button onClick={this.logout}>Prendre un RDV</button> */}
+          {/* <button onClick={this.consultations}>Consultations</button> */}
+          {/* <button onClick={this.compte}>Compte</button> */}
+          
+        </div>
+      )
+    // }
+
+
+
   }
 }
 

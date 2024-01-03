@@ -1,7 +1,12 @@
-# from rest_framework.viewsets import ModelViewSet
-# from ..models import CustomUser
-# from .serializers import customUserSerializer
+from rest_framework.viewsets import ModelViewSet
+from ..models import Consultation
+from .serializers import ConsultationsSerializer
+from rest_framework.permissions import IsAuthenticated
 
-# class customUserViewSet(ModelViewSet):
-#     queryset = CustomUser.objects.all()
-#     serializer_class = customUserSerializer
+class ConsultationViewSet(ModelViewSet):
+    queryset = Consultation.objects.all()
+    serializer_class = ConsultationsSerializer
+    permission_classes = [IsAuthenticated]
+    # def get_queryset(self):
+    #     # Filter the queryset based on the current user
+    #     return Consultation.objects.filter(User=self.request.user)

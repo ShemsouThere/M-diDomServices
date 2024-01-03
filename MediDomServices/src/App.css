@@ -1,42 +1,52 @@
-#root {
-  max-width: 1280px;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  h1 {
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  justify-content: space-around;
+  height: 500px;
+  }
+  
+  header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 75px;
+  box-shadow: 5px 3px 10px rgb(8, 127, 24);
+  }
+  
+  .logo {
+  font-size: 40px;
+  color: rgb(8, 127, 24);
+  }
+  
+  .display-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  }
+  
+  .display-menu .menu {
+  padding: 0 15px;
+  }
+  
+  footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px -3px 10px rgb(8, 127, 24);
+  margin-top: 30px;
+  }
+  
+  .footer-content {
+  font-size: 25px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  display: flex;
+  color: #000000;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
