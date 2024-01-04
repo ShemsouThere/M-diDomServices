@@ -8,7 +8,7 @@ return (
 MediDomServices
 </div>
 <div className="display-menu">
-<Link className='menu' to={""}>Home</Link>
+<Link className='menu' to={"/"}>Home</Link>
 
 {/* COTE RESPONSABLE */}
 
