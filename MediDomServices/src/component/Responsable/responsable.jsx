@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import App from '../App.jsx'
+import App from '../Auth/LoginForm.jsx'
 
 const ResponsibleInterface = () => {
   const [selectedView, setSelectedView] = useState('consultations'); // Default view

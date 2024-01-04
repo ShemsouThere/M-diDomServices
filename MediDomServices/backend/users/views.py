@@ -29,11 +29,12 @@ def login_view(request):
     login(request, user)
     return JsonResponse({"details": "Succesfully logged in!", "userRole": user.userRole, "user_id":user.id})
 
+
 def logout_view(request):
     if not request.user.is_authenticated:
         return JsonResponse({"detail":"You are not logged in!"}, status=400)
     logout(request)
-    return JsonResponse({"detail":"Succesfully logged out!"})
+    return JsonResponse({"details":"Succesfully logged out!"})
 
 
 @ensure_csrf_cookie
@@ -44,13 +45,6 @@ def session_view(request):
 
 
 
-# views.py
-from django.http import JsonResponse
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from .serializers import CustomUserSerializer
-
-@api_view(['GET'])
 def whoami_view(request):
     if not request.user.is_authenticated:
         return JsonResponse({"isAuthenticated": False})

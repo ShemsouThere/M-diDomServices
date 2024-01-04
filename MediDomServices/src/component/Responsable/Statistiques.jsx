@@ -1,5 +1,5 @@
 import React from "react";
-import Client from "../Client/client.jsx"
+// import Client from "../Client/client.jsx"
 
 
 
@@ -11,14 +11,15 @@ import Client from "../Client/client.jsx"
 
 
 
-const Rendezvous = () => {
+const Statistiques = () => {
 return (
 <>
-<section className='ktiba'>
-< Client />
+<section className='Stats'>
+{/* < Client /> */}
+<h1>OMG BOSS STATS</h1>
 </section>
 </>
 );
 };
 
-export default Rendezvous;
+export default Statistiques;

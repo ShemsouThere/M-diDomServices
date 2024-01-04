@@ -1,6 +1,8 @@
 // LoginForm.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -11,10 +13,15 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/api/token/', {
+      const response = await axios.post('/api/user/login/', {
         username,
         password,
-      });
+      },
+      {headers: {
+        "X-CSRFToken": cookies.get("csrftoken"), // Include the CSRF token
+                },
+      }
+      );
 
       // Save the token to local storage or cookie
       localStorage.setItem('token', response.data.access);

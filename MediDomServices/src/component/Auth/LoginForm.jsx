@@ -1,7 +1,7 @@
 import React from 'react';
 import Cookies from "universal-cookie";
-import Client from './Client/client.jsx'
-import Responsable from './Responsable/responsable.jsx'
+import Client from '../../Client/client.jsx'
+import Responsable from '../Responsable/responsable.jsx'
 //instantiating Cookies class by creating cookies object
 const cookies = new Cookies();
 
@@ -20,7 +20,7 @@ class App extends React.Component {
 
   componentDidMount = () => {
     this.getSession();
-    console.log(this.state);
+
   }
 
 // Get Session Method
@@ -160,11 +160,11 @@ class App extends React.Component {
 
         <div>
         {this.state.userRole=== "responsable" ? < Responsable/> : < Client/>}
+      <p>You are logged in! <b>Check Your Console</b></p>
+      <button className="btn btn-primary mr-2" onClick={this.whoami}>WhoAmI</button>
+      <button className="btn btn-danger" onClick={this.logout}>Log out</button>
             {/* <h1>Hello Boss</h1>
           <h1>React Cookie Auth</h1>
-          <p>You are logged in!</p>
-          <button className="btn btn-primary mr-2" onClick={this.whoami}>WhoAmI</button>
-          <button className="btn btn-danger" onClick={this.logout}>Log out</button> */}
           {/* <button onClick={this.logout}>Prendre un RDV</button> */}
           {/* <button onClick={this.consultations}>Consultations</button> */}
           {/* <button onClick={this.compte}>Compte</button> */}

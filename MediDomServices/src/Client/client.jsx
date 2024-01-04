@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const Client = () => {
     
-  const [selectedTab, setSelectedTab] = useState('prendreRdv');
   const [consultationType, setConsultationType] = useState('');
   const [formData, setFormData] = useState({
       Date: '',
@@ -54,9 +53,6 @@ const Client = () => {
     // }
   }, []);
 
-  const handleTabChange = (tab) => {
-    setSelectedTab(tab);
-  };
 
   const handleConsultationTypeChange = (type) => {
     setConsultationType(type);
@@ -142,16 +138,7 @@ const Client = () => {
   };
 
   return (
-    <div>
-      <nav>
-        <button onClick={() => handleTabChange('consultations')}>Consultations</button>
-        <button onClick={() => handleTabChange('acceuil')}>Acceuil</button>
-        <button onClick={() => handleTabChange('prendreRdv')}>Prendre un RDV</button>
-        <button onClick={() => handleTabChange('compte')}>Compte</button>
-      </nav>
-
-      <div>
-        {selectedTab === 'prendreRdv' && (
+ 
           <>
             <h2>Prendre un RDV</h2>
             <div>
@@ -228,23 +215,9 @@ const Client = () => {
               </form>
             )}
           </>
-        )}
-        {/* Add other sections for 'consultations', 'acceuil', and 'compte' as needed */}
-
-        {selectedTab === 'consultations' && (
-        <>
-        
-        <div></div>
-        
-        </>
-            )}
 
 
-      </div>
-
-                    
-
-    </div>
+                
   );
 };
 
