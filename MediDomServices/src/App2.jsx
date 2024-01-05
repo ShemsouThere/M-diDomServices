@@ -73,15 +73,15 @@ return (
 
 {isAuthenticated.userRole !== 'responsable' && (
   <>
-<Route path="/Consultations" element={<Consultations />} />
-<Route path="/RendezVous" element={<Rendezvous />} />
+<Route path="/Consultations" element={<Consultations isAuthenticated={isAuthenticated.isAuthenticated} userRole={isAuthenticated.userRole}/>} />
+<Route path="/RendezVous" element={<Rendezvous isAuthenticated={isAuthenticated.isAuthenticated} userRole={isAuthenticated.userRole}/>} />
   </>
 )}
 
 {isAuthenticated.userRole === 'responsable' && (
   <>
 <Route path="/Statistiques" element={<Statistiques />} />
-<Route path="/Consultations" element={<Consultations />} />
+<Route path="/Consultations" element={<Consultations isAuthenticated={isAuthenticated.isAuthenticated} userRole={isAuthenticated.userRole}/>} />
   </>
 )}
 

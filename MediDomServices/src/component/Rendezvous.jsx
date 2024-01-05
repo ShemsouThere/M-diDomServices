@@ -11,11 +11,25 @@ import Client from "../Client/client.jsx"
 
 
 
-const Rendezvous = () => {
+const Rendezvous = ({ isAuthenticated ,userRole}) => {
 return (
 <>
 <section className='ktiba'>
+    {isAuthenticated && userRole==='client' && 
+    (
 < Client />
+    )}
+
+
+
+    {!isAuthenticated && (
+    <>
+        <h2>You are not authenticated!</h2>
+        <p>Notify the user that he must be authenticated, Show him a preview of the "Prendre un RDV" Form and when he clicks on "Enregistrer" Redirect him to "/Register"</p>
+    </>
+    )}
+
+
 </section>
 </>
 );
