@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.2rem;
+    padding: .2rem;
     background-color: #ffffff;
     box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
     font-family: Outfit;
@@ -29,14 +29,16 @@
   }
   
   .nav-item {
-    margin-right: 1.5rem;
-    margin-left: 2rem;
+    margin-right: 2.5rem;
+    margin-left: 0rem;
   }
-  
   
   .nav-link {
     text-decoration: none;
     color: #333; /* Adjust the color */
+  }
+  .nav-link:hover {
+    color: #6db47f; /* Adjust the hover color */
   }
   
   /* Navbar icons styles */
@@ -61,7 +63,7 @@
   
   /* Icon hover effect */
   .icon-link:hover {
-    color: #666; /* Adjust the hover color */
+    color: #6db47f; /* Adjust the hover color */
   }
   
 
@@ -75,14 +77,14 @@
     height: 6px;
     background-color: rgb(147, 255, 58);
     border-radius: 50%;
-    left: -12px;
+    left: -2px;
     top: 50%;
     transform: translateY(-50%);
   }
   
   /* Adjust the text margin on hover */
   .nav-item:hover .nav-link {
-    margin-left: 20px; /* Adjust the margin to accommodate the dot */
+    margin-left: 5px; /* Adjust the margin to accommodate the dot */
   }
   /* Responsive styles */
   @media (max-width: 768px) {

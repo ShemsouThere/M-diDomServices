@@ -1,15 +1,13 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
-// Import your CSS file
+import './Footer.css';
 
 function Footer() {
-return (
-<footer>
-<div className="footer-content">
-<p>footer content</p>
-{/* Add any other content or links for the footer */}
-</div>
-</footer>
-);
+  return (
+    <footer className="footer">
+      <p>© 2024 MediDomServices. All Rights Reserved.</p>
+    </footer>
+  );
 }
 
 export default Footer;
