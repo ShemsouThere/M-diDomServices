@@ -26,7 +26,7 @@ useEffect(() => {
 return (
 <>
 <section className='Consultations'>
-<h2>Consultations Page</h2>
+<h2>Mes Consultations</h2>
 
 {isAuthenticated && userRole==='client'&&
 (
@@ -35,10 +35,10 @@ return (
         {/* Display consultations in rows */}
         {consultations.map((consultation, index) => (
               <div key={index}>
-                <h4>Consultation N°: {index+1}</h4>
-                <h4>Heure: {consultation.Heure}</h4>
-                <h4>Date: {consultation.Date}</h4>
-                <h4>Type: {consultation.Type}</h4>
+                <p><b>Consultation N°: {index+1}</b></p>
+                <p>Heure: {consultation.Heure}</p>
+                <p>Date: {consultation.Date}</p>
+                <p>Type: {consultation.Type}</p>
               </div>
             ))}
         
