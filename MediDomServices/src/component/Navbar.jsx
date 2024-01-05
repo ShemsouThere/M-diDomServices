@@ -71,7 +71,7 @@ const Navbar = ({ isAuthenticated ,userRole}) => {
         {isAuthenticated && (
             <li className='nav-icons'>
             <Link className={` icon-link`} onClick={handleIconClick} to={"/Account"}>
-              <MdOutlineManageAccounts size={30} />Account
+              <MdOutlineManageAccounts size={30} />
             </Link>
             </li>
           )}

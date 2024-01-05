@@ -139,7 +139,7 @@ const App = () => {
 	        <div className="overlay">
 	        	<div className="overlay-panel overlay-right">
 	        		<h1 className='h1'>Hello, Friend!</h1>
-	        		<p>Enter your personal details and start journey with us</p>
+	        		<p className='p'>Enter your personal details and start journey with us</p>
 	        		<button className="ghost" id="signUp">Sign Up</button>
 	        	</div>
 	        </div>
