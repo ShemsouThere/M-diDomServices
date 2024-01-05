@@ -50,7 +50,7 @@ const RegistrationForm = () => {
     <form onSubmit={handleSubmit}>
       <label>
         Username:
-        <input type="text" name="username" value={formData.username} onChange={handleChange} required />
+        <input type="text" name="username" placeholder='No space in the username' value={formData.username} onChange={handleChange} required />
       </label>
       <br />
       
@@ -106,13 +106,13 @@ const RegistrationForm = () => {
 
       <label>
         Pathologies Chroniques:
-        <textarea name="pathologies_chroniques" value={formData.pathologies_chroniques} onChange={handleChange} />
+        <textarea name="pathologies_chroniques" placeholder='Ne la laisser pas vide' value={formData.pathologies_chroniques} onChange={handleChange} required />
       </label>
       <br />
 
       <label>
         Sous Trait Medi Part:
-        <textarea name="sous_trait_medi_part" value={formData.sous_trait_medi_part} onChange={handleChange} />
+        <textarea name="sous_trait_medi_part" placeholder='Ne la laisser pas vide' value={formData.sous_trait_medi_part} onChange={handleChange} required />
       </label>
       <br />
 
