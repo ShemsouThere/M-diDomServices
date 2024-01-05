@@ -35,13 +35,13 @@ const Navbar = ({ isAuthenticated ,userRole}) => {
             </>
         )}
 
-
+{/* 
         <li className="nav-item">
           <a href="/" className="nav-link">Services</a>
         </li>
         <li className="nav-item">
           <a href="/" className="nav-link">Rendez-vous</a>
-        </li>
+        </li> */}
 
 
         {userRole === 'responsable' && (
