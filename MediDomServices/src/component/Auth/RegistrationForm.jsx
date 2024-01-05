@@ -15,8 +15,8 @@ const RegistrationForm = () => {
     userRole: 'client',
     NSS: '', 
     DNS: '', 
-    pathologies_chroniques: '', 
-    sous_trait_medi_part: '', 
+    pathologies_chroniques: 'Non', 
+    sous_trait_medi_part: 'Non', 
   });
 
   const handleChange = (e) => {
@@ -106,13 +106,13 @@ const RegistrationForm = () => {
 
       <label>
         Pathologies Chroniques:
-        <textarea name="pathologies_chroniques" placeholder='Ne la laisser pas vide' value={formData.pathologies_chroniques} onChange={handleChange} required />
+        <textarea name="pathologies_chroniques"  value={formData.pathologies_chroniques} onChange={handleChange}  />
       </label>
       <br />
 
       <label>
-        Sous Trait Medi Part:
-        <textarea name="sous_trait_medi_part" placeholder='Ne la laisser pas vide' value={formData.sous_trait_medi_part} onChange={handleChange} required />
+        Traitement Medicale Particulier:
+        <textarea name="sous_trait_medi_part"  value={formData.sous_trait_medi_part} onChange={handleChange}  />
       </label>
       <br />
 
