@@ -1,7 +1,9 @@
 // client.jsx
 import React, { useState, useEffect } from 'react';
+import Cookies from 'universal-cookie';
 import axios from 'axios';
 
+const cookies = new Cookies();
 
 const Client = () => {
     
@@ -92,6 +94,7 @@ const Client = () => {
       const response = await axios.post('/api/consultation/',formData, {
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRFToken': cookies.get('csrftoken'),
         },
       })
       // Handle the response, e.g., show a success message to the user
