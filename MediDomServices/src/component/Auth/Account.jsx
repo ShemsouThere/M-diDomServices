@@ -145,23 +145,50 @@ const Account = () => {
   }
 
   return (
-    <section>
+    <section className='section1'> 
     <div className="container"> {/* Apply container style */}
       {/* Rest of your content */}
       <div className="profile-card"> {/* Apply profile card style */}
         {/* Display user information */}
-        <p>You are logged in! <b>Check Your Console</b></p>
-        <p>Username: {state.username}</p>
-        <p>First Name: {state.first_name}</p>
-        <p>Last Name: {state.last_name}</p>
-        <p>Email: {state.email}</p>
-        <p>Phone Number: {state.phone_number}</p>
-        <p>DNS: {state.DNS}</p>
-        <p>NSS: {state.NSS}</p>
-        <p>Pathologies Chroniques: {state.pathologies_chroniques}</p>
-        <p>Sous Trait Medi Part: {state.sous_trait_medi_part}</p>
+        <p className='textcenter'>You are logged in! </p>
+        <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">Username:</div>
+            <div className="value-box">{state.username}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">First Name</div>
+            <div className="value-box">{state.first_name}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">Last Name</div>
+            <div className="value-box">{state.last_name}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">Email</div>
+            <div className="value-box">{state.email}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">Phone Number</div>
+            <div className="value-box">{state.phone_number}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">DNS</div>
+            <div className="value-box">{state.DNS}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">NSS</div>
+            <div className="value-box">{state.NSS}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">Pathologies Chroniques</div>
+            <div className="value-box">{state.pathologies_chroniques}</div>
+          </div>
+          <div className="inputbox"> {/* Username input box */}
+            <div className="label-box">Sous Trait Medi Part</div>
+            <div className="value-box">{state.sous_trait_medi_part}</div>
+          </div>
         {/* Buttons */}
-        <button className="ghost" onClick={logout}>
+        <button className='btn-container' onClick={logout}>
           Log out
         </button>
       </div>
