@@ -1,9 +1,13 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import Cookies from 'universal-cookie';
+// eslint-disable-next-line no-unused-vars
 import Client from '../../Client/client.jsx';
+// eslint-disable-next-line no-unused-vars
 import Responsable from '../Responsable/responsable.jsx';
 import { useNavigate } from 'react-router-dom';
-
+import './LoginForm.css';
 const cookies = new Cookies();
 
 const App = () => {
@@ -86,41 +90,65 @@ const App = () => {
 
   if (!state.isAuthenticated) {
     return (
-      <div className="container mt-3">
-        <h1>React Cookie Auth</h1>
-        <br />
-        <h2>Login</h2>
-        <form onSubmit={login}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              className="form-control"
-              id="username"
-              name="username"
-              value={state.username}
-              onChange={handleUserNameChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="username">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={state.password}
-              onChange={handlePasswordChange}
-            />
-            <div>
-              {state.error && <small className="text-danger">{state.error}</small>}
+      
+  <>
+  
+  <div className="container">
+
+        <section className="form-container sign-in-container">
+          <h2 className='h2'>Login</h2>
+          <form onSubmit={login}>
+            <div className="form-group">
+              <label htmlFor="username"></label>
+              <input
+                type="text"
+                placeholder='UserName'
+                id="username"
+                name="username"
+                value={state.username}
+                onChange={handleUserNameChange}
+              />
             </div>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
-        </form>
+            <div className="form-group">
+              <label htmlFor="password"></label>
+              <input
+                type="password"
+                placeholder='Password'
+                id="password"
+                name="password"
+                value={state.password}
+                onChange={handlePasswordChange}
+              />
+              <div>
+                {state.error && <small className="text-danger">{state.error}</small>}
+              </div>
+            </div>
+            <button className="btn" type="submit">
+              <strong>Login</strong>
+              <div id="container-stars">
+                <div id="stars"></div>
+              </div>
+              <div id="glow">
+                <div className="circle"></div>
+                <div className="circle"></div>
+              </div>
+            </button>
+          </form>
+
+          <div className="overlay-container">
+	        <div className="overlay">
+	        	<div className="overlay-panel overlay-right">
+	        		<h1 className='h1'>Hello, Friend!</h1>
+	        		<p>Enter your personal details and start journey with us</p>
+	        		<button className="ghost" id="signUp">Sign Up</button>
+	        	</div>
+	        </div>
+	        </div>
+        </section>
       </div>
+
+        </>
+      
     );
   }
 
