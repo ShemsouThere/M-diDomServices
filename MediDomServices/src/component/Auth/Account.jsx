@@ -161,7 +161,7 @@ const Account = () => {
         <p>Pathologies Chroniques: {state.pathologies_chroniques}</p>
         <p>Sous Trait Medi Part: {state.sous_trait_medi_part}</p>
         {/* Buttons */}
-        <button className="ghost" onClick={logout}>
+        <button  onClick={logout}>
           Log out
         </button>
       </div>
