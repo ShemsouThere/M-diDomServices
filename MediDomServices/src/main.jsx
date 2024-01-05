@@ -5,12 +5,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import RegistrationForm from './Auth/RegistrationForm.jsx';
 import Navbar from './components/navbar.jsx';
+import LandPage from './components/landpage.jsx';
 // import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
      // eslint-disable-next-line react/jsx-no-comment-textnodes
      <><Navbar />
-        // <App />
+     <LandPage />
+
         <RegistrationForm /></>
     
 )
