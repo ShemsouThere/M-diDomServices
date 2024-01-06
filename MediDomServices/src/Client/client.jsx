@@ -153,7 +153,7 @@ const Client = () => {
               </button>
             </div>
             <label>
-              Consultation <strong>N°</strong>
+              Consultation <b>N°</b>
             </label>
             {consultationType && (
               <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -181,7 +181,7 @@ const Client = () => {
                 </label>
 
                 <label>
-                  Service demandé:<strong>{consultationType}</strong>
+                  Service demandé:<b>{consultationType}</b>
                 </label>
                 {showPayerButton && (
                   <button type="button" onClick={handlePayment}>

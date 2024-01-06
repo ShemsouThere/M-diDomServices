@@ -18,6 +18,20 @@ const Consultations = ({ isAuthenticated ,userRole}) => {
             console.error('Error getting consultations:', error);
         }
     };
+
+
+// Function to determine the color based on the status
+const getStatusColor = (status) => {
+    switch (status) {
+      case 'En attente':
+        return 'orange';
+      case 'Refusée':
+        return 'red';
+      default:
+        return 'green';
+    }
+  };
+
     
 useEffect(() => {
         getConsultations();
@@ -39,6 +53,12 @@ return (
                 <p>Heure: {consultation.Heure}</p>
                 <p>Date: {consultation.Date}</p>
                 <p>Type: {consultation.Type}</p>
+                <label>
+                    Status: {' '}
+                        <span style={{ color: getStatusColor(consultation.Status) }}>
+                            {consultation.Status}
+                        </span>
+                </label>
               </div>
             ))}
         
